@@ -108,7 +108,54 @@ div.main-content {
 .tool-module.active-module { display: block; }
 header.module-header { padding: 24px; border-bottom: 1px solid var(--border-color); }
 header.module-header h2 { margin: 0; font-size: 22px; color: var(--module-text); text-align: center; }
-main { padding: 24px; }
+header.module-header h2 { margin: 0; font-size: 22px; color: var(--module-text); text-align: center; }
+
+main {
+    display: flex;
+    flex-direction: column;
+    height: calc(100vh - 165px); /* Ajustar altura para que quepa en la vista */
+    padding: 24px;
+    box-sizing: border-box;
+}
+
+.resultados-area {
+    flex-grow: 1; /* Ocupa el espacio restante */
+    display: flex;
+    flex-direction: column;
+    margin-top: 20px;
+    background-color: var(--bg-dark-primary);
+    border-radius: var(--radius-xl);
+    padding: 16px;
+    overflow: hidden; /* Para contener el pre */
+}
+
+.resultados-area h3 {
+    margin: 0 0 16px 0;
+    color: var(--text-primary);
+    font-size: 18px;
+    font-weight: 600;
+    flex-shrink: 0;
+}
+
+pre.resultado-texto-pre, #lista-slogans, #tarjetas-tono-container, #script-card-grid {
+    flex-grow: 1; 
+    background-color: white;
+    border: 1px solid var(--border-color);
+    border-radius: 8px;
+    padding: 12px;
+    color: var(--text-primary);
+    overflow-y: auto; /* Scroll cuando el contenido excede el tamaño */
+}
+
+pre.resultado-texto-pre {
+    white-space: pre-wrap;
+    word-wrap: break-word;
+}
+
+#lista-slogans {
+    list-style: none;
+    padding-left: 0;
+}
 
 .btn-generar {
     display: block;
@@ -283,7 +330,11 @@ main { padding: 24px; }
   }
 
   main {
-    padding: 16px; /* Reducir padding en los módulos */
+    display: flex;
+    flex-direction: column;
+    height: calc(100vh - 145px); /* header + nav-bar */
+    padding: 16px;
+    box-sizing: border-box;
   }
 
   .resultados-area {
