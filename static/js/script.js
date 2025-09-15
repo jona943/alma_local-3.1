@@ -84,6 +84,7 @@ document.addEventListener('DOMContentLoaded', () => {
             const data = await response.json();
             areaResultadosGuion.style.display = 'block';
             preResultadoGuion.textContent = data.guion;
+            document.getElementById('script-texto-wrapper').style.display = 'block';
         } catch (error) {
             console.error(error); alert('Ocurrió un error (Guion).');
         } finally { spinnerGuion.style.display = 'none'; botonGenerarGuion.disabled = false; }
