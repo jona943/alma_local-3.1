@@ -447,6 +447,7 @@ const logoutBtn = document.getElementById('logout-btn');
 if (logoutBtn) {
     logoutBtn.addEventListener('click', () => {
         if (confirm('¿Estás seguro de que quieres cerrar sesión?')) {
+            sessionStorage.setItem('loggedOut', 'true');
             window.location.href = '../pages/login.html';
         }
     });

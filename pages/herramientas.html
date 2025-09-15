@@ -5,6 +5,11 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Alma Local</title>
+    <script>
+      if (sessionStorage.getItem('loggedOut') === 'true') {
+        window.location.replace('../pages/login.html');
+      }
+    </script>
     <!-- Favicon para evitar 404 del navegador -->
     <link rel="icon"
         href="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAQAAAC1HAwCAAAAC0lEQVR4nGNgYAAAAAMAASsJTYQAAAAASUVORK5CYII=">
