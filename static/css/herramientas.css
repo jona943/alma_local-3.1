@@ -469,7 +469,7 @@ input[type="file"] {
   main {
     display: flex;
     flex-direction: column;
-    height: calc(100vh - 145px); /* header + nav-bar */
+    min-height: calc(100vh - 145px); /* header + nav-bar */
     padding: 16px;
     box-sizing: border-box;
   }
