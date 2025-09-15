@@ -1,4 +1,4 @@
-const BASE_URL = 'https://e042f5a3e640.ngrok-free.app';
+const BASE_URL = 'https://f222809b498c.ngrok-free.app';
 
 // --- LÓGICA DE NAVEGACIÓN (TABS) ---
 document.addEventListener('DOMContentLoaded', () => {
@@ -170,6 +170,25 @@ function displayStatusMessage(moduleContainer, type, message, clear = false) {
     const areaResultadosGuion = moduleContainer.querySelector('#resultados-guion-area');
     const preResultadoGuion = moduleContainer.querySelector('#resultado-guion');
     const spinnerGuion = moduleContainer.querySelector('#spinner-guion');
+    
+    const vistaCardsBtn = moduleContainer.querySelector('#vista-cards');
+    const vistaTextoBtn = moduleContainer.querySelector('#vista-texto');
+    const scriptCardGrid = moduleContainer.querySelector('#script-card-grid');
+    const scriptTextoWrapper = moduleContainer.querySelector('#script-texto-wrapper');
+
+    vistaTextoBtn.addEventListener('click', () => {
+        scriptTextoWrapper.style.display = 'block';
+        scriptCardGrid.style.display = 'none';
+        vistaTextoBtn.classList.add('active');
+        vistaCardsBtn.classList.remove('active');
+    });
+
+    vistaCardsBtn.addEventListener('click', () => {
+        scriptTextoWrapper.style.display = 'none';
+        scriptCardGrid.style.display = 'grid';
+        vistaCardsBtn.classList.add('active');
+        vistaTextoBtn.classList.remove('active');
+    });
 
     botonGenerarGuion.addEventListener('click', async () => {
         const tema = inputTemaVideo.value;
@@ -195,7 +214,13 @@ function displayStatusMessage(moduleContainer, type, message, clear = false) {
             const data = await response.json();
             areaResultadosGuion.style.display = 'block';
             preResultadoGuion.textContent = data.guion;
-            document.getElementById('script-texto-wrapper').style.display = 'block';
+            
+            // Show text view, hide card view, and set buttons
+            scriptTextoWrapper.style.display = 'block';
+            scriptCardGrid.style.display = 'none';
+            vistaTextoBtn.classList.add('active');
+            vistaCardsBtn.classList.remove('active');
+
             displayStatusMessage(moduleContainer, 'success', 'Completado');
         } catch (error) {
             if (error.message === 'api_error') {
