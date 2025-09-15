@@ -48,10 +48,15 @@ document.addEventListener('DOMContentLoaded', () => {
             if (!response.ok) throw new Error(`Error Slogan: ${response.statusText}`);
             const data = await response.json();
             areaResultadosSlogan.style.display = 'block';
+            const title = document.createElement('p');
+            title.textContent = 'Aquí tienes 5 opciones para tu eslogan ideal:';
+            listaSlogansUI.appendChild(title);
+
             data.slogans.forEach((slogan, index) => {
                 const li = document.createElement('li');
                 li.textContent = slogan.replace(/^- /, '');
                 li.style.animationDelay = `${index * 0.1}s`;
+                li.style.marginLeft = '10px';
                 listaSlogansUI.appendChild(li);
             });
         } catch (error) {

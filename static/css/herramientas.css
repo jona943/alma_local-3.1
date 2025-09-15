@@ -1,3 +1,7 @@
+*, *::before, *::after {
+  box-sizing: border-box;
+}
+
 :root {
   --bg-dark-primary: #fcf3e8;
   --bg-dark-secondary: #f3e2d6;
