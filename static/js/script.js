@@ -1,4 +1,4 @@
-const BASE_URL = 'https://bcc2e49708cb.ngrok-free.app';
+const BASE_URL = 'https://f222809b498c.ngrok-free.app';
 
 // --- LÓGICA DE NAVEGACIÓN (TABS) (Sin cambios) ---
 document.addEventListener('DOMContentLoaded', () => {
