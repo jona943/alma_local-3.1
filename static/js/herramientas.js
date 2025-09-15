@@ -69,3 +69,13 @@ window.addEventListener('DOMContentLoaded', () => {
 })();
 
 // ... (El resto del código de los módulos permanece igual)
+
+// --- LÓGICA DE LOGOUT ---
+const logoutBtn = document.getElementById('logout-btn');
+if (logoutBtn) {
+    logoutBtn.addEventListener('click', () => {
+        if (confirm('¿Estás seguro de que quieres cerrar sesión?')) {
+            window.location.href = '../pages/login.html';
+        }
+    });
+}

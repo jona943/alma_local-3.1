@@ -49,7 +49,7 @@ nav.sidebar {
   border-radius: 8px;
 }
 
-#close-btn, .mobile-header, .sidebar-overlay {
+#close-btn, .sidebar-overlay {
     display: none; /* Ocultos por defecto */
 }
 
@@ -198,4 +198,70 @@ main { padding: 24px; }
       border-bottom: none;
       max-width: 100%;
   }
+}
+
+/* --- HEADER PRINCIPAL --- */
+.main-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 16px 40px;
+    background-color: var(--bg-dark-secondary);
+    border-bottom: 1px solid var(--border-color);
+    width: calc(100% - 280px);
+    position: fixed;
+    top: 0;
+    left: 280px;
+    z-index: 900;
+    box-sizing: border-box;
+}
+
+.header-logo {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+}
+
+.header-logo img {
+    height: 40px;
+    width: auto;
+    border-radius: 6px;
+}
+
+.header-logo span {
+    font-size: 20px;
+    font-weight: 700;
+    color: var(--text-primary);
+}
+
+.btn-logout {
+    background-color: var(--accent-blue);
+    color: white;
+    border: none;
+    padding: 10px 16px;
+    font-size: 14px;
+    font-weight: 500;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: background-color 0.2s ease;
+}
+
+.btn-logout:hover {
+    background-color: var(--accent-blue-hover);
+}
+
+@media (max-width: 800px) {
+    .main-header {
+        width: 100%;
+        left: 0;
+        padding: 12px 20px;
+    }
+
+    .header-logo span {
+        display: none; /* Ocultar el texto en móvil */
+    }
+
+    div.main-content {
+        padding-top: 80px; /* Añadir padding para que el header no tape el contenido */
+    }
 }
