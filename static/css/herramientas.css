@@ -116,20 +116,19 @@ header.module-header h2 { margin: 0; font-size: 22px; color: var(--module-text);
 main {
     display: flex;
     flex-direction: column;
-    height: calc(100vh - 165px); /* Ajustar altura para que quepa en la vista */
+    min-height: calc(100vh - 165px); /* Allow growing */
     padding: 24px;
-    box-sizing: border-box;
 }
 
 .resultados-area {
-    flex-grow: 1; /* Ocupa el espacio restante */
+    flex-grow: 1; 
     display: flex;
     flex-direction: column;
     margin-top: 20px;
     background-color: var(--bg-dark-primary);
     border-radius: var(--radius-xl);
     padding: 16px;
-    overflow: hidden; /* Para contener el pre */
+    overflow: hidden; 
 }
 
 .resultados-area h3 {
@@ -141,23 +140,41 @@ main {
 }
 
 pre.resultado-texto-pre, #lista-slogans, #tarjetas-tono-container, #script-card-grid {
-    flex-grow: 1; 
+    min-height: 150px; /* Initial height */
+    max-height: 400px; /* Max height before scrolling */
+    overflow-y: auto; /* Add scrollbar when needed */
     background-color: white;
     border: 1px solid var(--border-color);
     border-radius: 8px;
     padding: 12px;
     color: var(--text-primary);
-    overflow-y: auto; /* Scroll cuando el contenido excede el tamaño */
-}
-
-pre.resultado-texto-pre {
-    white-space: pre-wrap;
+    white-space: pre-wrap; /* Ensure text wraps */
     word-wrap: break-word;
+    transition: min-height 0.3s ease; /* Smooth transition */
 }
 
 #lista-slogans {
     list-style: none;
     padding-left: 0;
+}
+
+.preview-container {
+    width: 100%;
+    max-width: 300px;
+    height: 300px;
+    border: 2px dashed var(--border-color);
+    border-radius: 8px;
+    margin: 16px auto;
+    overflow: hidden;
+    display: none; /* Hidden by default, shown by JS */
+    justify-content: center;
+    align-items: center;
+}
+
+.preview-foto-img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover; /* Scale and crop image to fit */
 }
 
 .btn-generar {
@@ -181,6 +198,45 @@ pre.resultado-texto-pre {
 
 .btn-generar:active {
     transform: scale(0.98);
+}
+
+.status-message {
+    padding: 10px;
+    border-radius: 8px;
+    margin-top: 16px;
+    text-align: center;
+    font-weight: 500;
+    display: none; /* Hidden by default */
+}
+
+.status-message.success {
+    background-color: #d4edda;
+    color: #155724;
+    display: block;
+}
+
+.status-message.error, .status-message.no-internet {
+    background-color: #f8d7da;
+    color: #721c24;
+    display: block;
+}
+
+.status-message.api-disabled {
+    background-color: #fff3cd;
+    color: #856404;
+    display: block;
+}
+
+.status-message.unstable-network {
+    background-color: #ffeeba;
+    color: #856404;
+    display: block;
+}
+
+.status-message.initial, .status-message.processing {
+    background-color: #f3e2d6; /* Light brown */
+    color: #5c381f;
+    display: block;
 }
 
 .form-group {
