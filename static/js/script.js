@@ -1,4 +1,4 @@
-const BASE_URL = 'http://127.0.0.1:5050';
+const BASE_URL = 'https://bcc2e49708cb.ngrok-free.app';
 
 // --- LÓGICA DE NAVEGACIÓN (TABS) (Sin cambios) ---
 document.addEventListener('DOMContentLoaded', () => {
@@ -210,3 +210,13 @@ document.addEventListener('DOMContentLoaded', () => {
         } finally { spinnerIdeaFoto.style.display = 'none'; botonAnalizarSit.disabled = false; }
     });
 })(); 
+
+// --- LÓGICA DE LOGOUT ---
+const logoutBtn = document.getElementById('logout-btn');
+if (logoutBtn) {
+    logoutBtn.addEventListener('click', () => {
+        if (confirm('¿Estás seguro de que quieres cerrar sesión?')) {
+            window.location.href = '../pages/login.html';
+        }
+    });
+} 
