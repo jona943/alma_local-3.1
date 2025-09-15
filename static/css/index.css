@@ -1,0 +1,130 @@
+:root {
+    /* === TU PALETA DE COLORES === */
+    --piel-01: #f3e2d6;
+    --piel-02: #e9cfc2;
+    --piel-03: #f3d6be;
+    --piel-04: #e1a299;
+    --piel-05: #ba9a86;
+    --piel-06: #d3a77d;
+    --piel-07: #d3b6a5;
+    --piel-08: #a18069;
+    --piel-b-01: #795d35;
+    --piel-b-02: #ae9c78;
+    --piel-b-03: #d8c0aa;
+    --piel-b-04: #543626;
+    --piel-b-05: #532604;
+    --piel-b-06: #7c6152;
+    --piel-b-07: #988258;
+    --piel-b-08: #5c381f;
+    --piel-b-09: #683812;
+    --piel-b-10: #c9b099;
+    --piel-b-11: #461901;
+    --piel-b-12: #5b4439;
+    --piel-b-13: #7d4e24;
+    --piel-b-14: #947b69;
+    --piel-b-15: #71401c;
+    --piel-b-16: #b79b80;
+    --piel-b-17: #f4eae0;
+    --piel-b-18: #baa187;
+    --piel-b-19: #7d522c;
+    --piel-b-20: #fcf3e8;
+
+    /* === MAPEO DE TUS COLORES A LAS VARIABLES DE TAILWIND === */
+    --background: var(--piel-02);
+    --foreground: var(--piel-b-08);
+    --card: var(--piel-b-17);
+    --card-foreground: var(--piel-b-08);
+    --primary: var(--piel-b-15);
+    /* Color principal, como tu botón de acento */
+    --primary-foreground: var(--piel-b-20);
+    /* Color del texto sobre el primario */
+    --secondary: var(--piel-b-06);
+    --secondary-foreground: var(--piel-b-20);
+    --muted: var(--piel-b-03);
+    --muted-foreground: var(--piel-b-09);
+    --accent: var(--piel-b-04);
+    /* Otro color de acento */
+    --accent-foreground: var(--piel-b-20);
+    --destructive: #ef4444;
+    /* Rojo para errores */
+    --destructive-foreground: #ffffff;
+    --border: var(--piel-b-14);
+    --input: var(--piel-b-17);
+    --ring: var(--piel-b-19);
+
+    /* --- ESTILOS DE TU PROYECTO --- */
+    --radius: 0.5rem;
+    --sidebar-background: var(--piel-b-06);
+    --sidebar-foreground: var(--piel-b-20);
+    --sidebar-primary: var(--piel-b-15);
+    --sidebar-primary-foreground: var(--piel-b-20);
+    --sidebar-accent: var(--piel-b-19);
+    --sidebar-accent-foreground: var(--piel-b-20);
+    --sidebar-border: var(--piel-b-14);
+    --sidebar-ring: var(--piel-b-19);
+}
+
+/* No es necesario re-definir las variables de modo oscuro si no lo tienes */
+
+* {
+    border-color: var(--border);
+}
+
+body {
+    background-color: var(--background);
+    color: var(--foreground);
+    font-family: 'Inter', sans-serif;
+    font-feature-settings: "rlig" 1, "calt" 1;
+}
+
+.font-headline {
+    font-family: 'Montserrat', serif;
+}
+
+.text-primary {
+    color: var(--primary);
+}
+
+.bg-primary\/10 {
+    background-color: color-mix(in srgb, var(--primary) 10%, transparent);
+}
+
+.bg-card\/50 {
+    background-color: color-mix(in srgb, var(--card) 50%, transparent);
+}
+
+.text-accent-foreground {
+    color: var(--accent-foreground);
+}
+
+.text-muted-foreground {
+    color: var(--muted-foreground);
+}
+
+.bg-accent {
+    background-color: var(--accent);
+}
+
+.hover\:bg-accent\/90:hover {
+    background-color: color-mix(in srgb, var(--accent) 90%, transparent);
+}
+
+.bg-accent\/90 {
+    background-color: color-mix(in srgb, var(--accent) 90%, transparent);
+}
+
+.bg-accent\/10 {
+    background-color: color-mix(in srgb, var(--accent) 10%, transparent);
+}
+
+.text-muted-foreground {
+    color: var(--muted-foreground);
+}
+
+.bg-primary {
+    background-color: var(--primary);
+}
+
+.text-primary-foreground {
+    color: var(--primary-foreground);
+}

@@ -1,0 +1,275 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Alma Local</title>
+    <!-- Favicon para evitar 404 del navegador -->
+    <link rel="icon"
+        href="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAQAAAC1HAwCAAAAC0lEQVR4nGNgYAAAAAMAASsJTYQAAAAASUVORK5CYII=">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="../static/css/herramientas.css">
+</head>
+
+<body>
+
+    <header class="mobile-header">
+        <button id="hamburger-btn" aria-label="Abrir menú">&#9776;</button>
+        <h1 class="mobile-title">Alma Local</h1>
+    </header>
+
+    <div class="sidebar-overlay"></div>
+
+    <nav class="sidebar">
+        <div class="sidebar-header">
+            <div class="nav-logo-container">
+                <img src="../static/img/login-img.jpeg" alt="Alma Local Logo" class="nav-logo">
+                <div class="pulse-effect"></div>
+            </div>
+            <button id="close-btn" aria-label="Cerrar menú">&times;</button>
+        </div>
+        <ul class="nav-menu">
+            <li><a href="#" class="nav-link active" data-target="module-slogans"><span class="icon">🚀</span> <span>Generador de Slogans</span></a></li>
+            <li><a href="#" class="nav-link" data-target="module-reels"><span class="icon">🎬</span> <span>Generador de Guiones</span></a></li>
+            <li><a href="#" class="nav-link" data-target="module-tono"><span class="icon">🎭</span> <span>Traductor de Tono</span></a></li>
+            <li><a href="#" class="nav-link" data-target="module-producto"><span class="icon">📸</span> <span>Descriptor de Producto</span></a></li>
+            <li><a href="#" class="nav-link" data-target="module-ideas"><span class="icon">💡</span> <span>Analizador de Ideas (WOW)</span></a></li>
+            <li><a href="#" class="nav-link" data-target="module-gastos"><span class="icon">💰</span> <span>Calculadora de gastos</span></a></li>
+            <li><a href="#" class="nav-link" data-target="module-campanas"><span class="icon">🔉</span> <span>Campaña publicitaria</span></a></li>
+        </ul>
+    </nav>
+
+
+    <div class="main-content">
+
+        <div class="container tool-module active-module" id="module-slogans">
+            <header class="module-header">
+                <h2 class="module-text">🚀 Generador de Slogans</h2>
+            </header>
+            <main>
+                <div id="generador-slogan">
+                    <div class="form-group"><label for="nombre_negocio">Nombre de tu negocio:</label><input type="text"
+                            id="nombre_negocio" placeholder="Ej: Café El Alba"></div>
+                    <div class="form-group"><label for="actividad_negocio">Describe tu negocio:</label><input
+                            type="text" id="actividad_negocio" placeholder="Ej: Cafetería de especialidad"></div>
+                    <button class="btn-generar" id="btn-crear-slogan"><span>Crear Slogans</span>
+                        <div class="spinner" id="spinner-slogan"></div>
+                    </button>
+                </div>
+                <div id="resultados-slogan" class="resultados-area">
+                    <h3>Resultados ✨</h3>
+                    <ul id="lista-slogans"></ul>
+                </div>
+            </main>
+        </div>
+
+        <div class="container tool-module" id="module-reels">
+            <header class="module-header">
+                <h2 class="module-text">🎬 Generador de Guion (Reels/TikTok)</h2>
+            </header>
+            <main>
+                <div id="generador-guion">
+                    <div class="form-group"><label for="tema_video">Describe la idea para tu video:</label><input
+                            type="text" id="tema_video" placeholder="Ej: Mostrar el 2x1 en donas de hoy"></div>
+                    <button class="btn-generar" id="btn-crear-guion"><span>Crear Guion</span>
+                        <div class="spinner" id="spinner-guion"></div>
+                    </button>
+                </div>
+                <div id="resultados-guion-area" class="resultados-area">
+                    <h3>Guion Sugerido 📝</h3>
+                    <div class="script-actions">
+                        <div class="toggle-group">
+                            <button class="btn-chip active" id="vista-cards">Tarjetas</button>
+                            <button class="btn-chip" id="vista-texto">Texto</button>
+                        </div>
+                        <button class="btn-secondary" id="btn-copiar-guion">Copiar todo</button>
+                    </div>
+                    <div id="script-card-grid" class="script-grid"></div>
+                    <div class="texto-original-wrapper" id="script-texto-wrapper" style="display:none;">
+                        <pre id="resultado-guion" class="resultado-texto-pre"></pre>
+                        <button class="btn-secondary btn-mini" id="btn-copiar-texto">Copiar texto</button>
+                    </div>
+                </div>
+                <div id="toast" class="toast" aria-live="polite"></div>
+            </main>
+        </div>
+
+
+        <div class="container tool-module" id="module-tono">
+            <header class="module-header">
+                <h2 class="module-text">🎭 Traductor de Tono</h2>
+            </header>
+            <main>
+                <div id="traductor-tono">
+                    <div class="form-group">
+                        <label for="texto_original">Escribe tu texto base:</label>
+                        <textarea id="texto_original"
+                            placeholder="Ej: Hola, vengan a la tienda, tenemos descuento."></textarea>
+                    </div>
+                    <label>Elige el tono deseado:</label>
+                    <div class="grupo-botones-tono">
+                        <button class="btn-tono" data-tono="Profesional">Profesional 💼</button>
+                        <button class="btn-tono" data-tono="Divertido">Divertido 😂</button>
+                        <button class="btn-tono" data-tono="Urgente">Urgente ⚡</button>
+                        <button class="btn-tono" data-tono="Amigable">Amigable 😊</button>
+                    </div>
+                </div>
+
+                <div id="resultados-tono-area" class="resultados-area">
+                    <h3>Variaciones Sugeridas ✍️</h3>
+                    <div class="spinner-centro" id="spinner-tono"></div>
+
+                    <div id="tarjetas-tono-container"></div>
+                </div>
+            </main>
+        </div>
+
+
+        <div class="container tool-module" id="module-producto">
+            <header class="module-header">
+                <h2 class="module-text">📸 Descripción de Producto (con Foto)</h2>
+            </header>
+            <main>
+                <div id="descriptor-producto">
+                    <div class="form-group"><label>Sube una foto de tu producto:</label><input type="file"
+                            id="input_foto_producto" accept="image/png, image/jpeg"><label for="input_foto_producto"
+                            class="label-subir-foto">Seleccionar Imagen...</label></div>
+                    <div id="preview-container-producto" class="preview-container"><img id="preview-foto-img-producto"
+                            class="preview-foto-img" src="" alt="Vista previa del producto"></div>
+                    <button class="btn-generar" id="btn-describir-foto" disabled><span>Generar Descripción</span>
+                        <div class="spinner" id="spinner-foto-desc"></div>
+                    </button>
+                </div>
+                <div id="resultados-foto-area" class="resultados-area">
+                    <h3>Descripción Sugerida 🌟</h3>
+                    <div class="spinner-centro" id="spinner-desc-foto"></div>
+                    <pre id="resultado-descripcion" class="resultado-texto-pre"></pre>
+                </div>
+            </main>
+        </div>
+
+        <div class="container tool-module" id="module-ideas">
+            <header class="module-header">
+                <h2>💡 Generador de Ideas por Foto (WOW)</h2>
+            </header>
+            <main>
+                <div id="analizador-situacion">
+                    <div class="form-group"><label>Sube una foto de tu problema o situación (ej. local
+                            vacío):</label><input type="file" id="input_foto_situacion"
+                            accept="image/png, image/jpeg"><label for="input_foto_situacion"
+                            class="label-subir-foto">Analizar Situación...</label></div>
+                    <div id="preview-container-situacion" class="preview-container"><img id="preview-foto-img-situacion"
+                            class="preview-foto-img" src="" alt="Vista previa de la situación"></div>
+                    <button class="btn-generar" id="btn-analizar-situacion" disabled><span>Darme Ideas AHORA</span>
+                        <div class="spinner" id="spinner-foto-idea"></div>
+                    </button>
+                </div>
+                <div id="resultados-situacion-area" class="resultados-area">
+                    <h3>Ideas Accionables ⚡</h3>
+                    <div class="spinner-centro" id="spinner-idea-foto"></div>
+                    <pre id="resultado-ideas" class="resultado-texto-pre"></pre>
+                </div>
+            </main>
+        </div>
+
+        <div class="container tool-module" id="module-gastos">
+  <header class="module-header">
+    <h2 class="module-text">📸 Calculadora de gastos</h2>
+  </header>
+
+  <main>
+    <div id="calculadora-gastos">
+      <div class="form-group">
+        <label for="gastos_extras">Gastos Adicionales:</label>
+        <input type="text" id="gastos_extras" placeholder="Ej: $10 transporte, $30 refresco">
+      </div>
+
+      <div class="form-group">
+        <label>Sube una foto de tu ticket o compras:</label>
+        <input type="file" id="input_foto_gastos" accept="image/png, image/jpeg">
+        <label for="input_foto_gastos" class="label-subir-foto">Seleccionar Imagen.</label>
+      </div>
+
+      <div id="preview-container-gastos" class="preview-container">
+        <img id="preview-foto-img-gastos" class="preview-foto-img" src="" alt="Vista previa de gastos">
+      </div>
+
+      <button class="btn-generar" id="btn-calcular-gastos" disabled>
+        <span>Calcular gastos</span>
+        <div class="spinner" id="spinner-gastos-btn"></div>
+      </button>
+    </div>
+
+    <div id="resultados-gastos-area" class="resultados-area">
+      <h3>Análisis de gastos 🤑</h3>
+      <div class="spinner-centro" id="spinner-gastos-centro"></div>
+      <pre id="resultado-gastos" class="resultado-texto-pre"></pre>
+    </div>
+  </main>
+</div>
+
+<!-- MÓDULO: CAMPAÑA PUBLICITARIA -->
+
+<div class="container tool-module" id="module-campanas">
+  <header class="module-header">
+    <h2 class="module-text">🔉 Campaña publicitaria</h2>
+  </header>
+
+  <main>
+    <div id="campana-form">
+      <div class="form-group">
+        <label for="camp_nombre_giro">Nombre y Giro del negocio</label>
+        <input type="text" id="camp_nombre_giro" placeholder="Ej: Panadería Luna – Panadería artesanal">
+      </div>
+
+      <div class="form-group">
+        <label for="camp_producto_estrella">Producto Estrella</label>
+        <input type="text" id="camp_producto_estrella" placeholder="Ej: Concha rellena de cajeta">
+      </div>
+
+      <div class="form-group">
+        <label for="camp_cliente_tipico">Cliente Típico</label>
+        <input type="text" id="camp_cliente_tipico" placeholder="Ej: Familias y oficinistas de 25-45 años">
+      </div>
+
+      <div class="form-group">
+        <label for="camp_situacion_meta">Situación y Meta (venta actual y meta diaria)</label>
+        <input type="text" id="camp_situacion_meta" placeholder="Ej: Vendo $1,200/día y quiero llegar a $2,000/día">
+      </div>
+
+      <button class="btn-generar" id="btn-generar-campana">
+        <span>Generar To‑Do de Crecimiento</span>
+        <div class="spinner" id="spinner-campana-btn"></div>
+      </button>
+    </div>
+
+    <div id="resultado-campana-area" class="resultados-area">
+      <h3>Plan accionable 📣</h3>
+      <div class="spinner-centro" id="spinner-campana-centro"></div>
+      <pre id="resultado-campana" class="resultado-texto-pre"></pre>
+    </div>
+  </main>
+</div>
+
+
+    </div>
+
+    <div id="resultado-campana-area" class="resultados-area">
+      <h3>Borrador de campaña 📣</h3>
+      <div class="spinner-centro" id="spinner-campana-centro"></div>
+      <pre id="resultado-campana" class="resultado-texto-pre"></pre>
+    </div>
+  </main>
+</div>
+
+
+    </div>
+
+    <script src="../static/js/herramientas.js" defer></script>
+
+</body>
+
+</html>

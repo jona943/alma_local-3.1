@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Alma Local - Dale alma a tu negocio</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Montserrat:wght@700;800&display=swap" rel="stylesheet">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="static/css/index.css">
+</head>
+<body class="flex flex-col min-h-screen">
+
+    <!-- Header -->
+    <header class="container mx-auto px-4 sm:px-6 lg:px-8 h-20 flex items-center justify-between">
+<a href="#" class="flex items-center gap-2">
+    <img src="static/img/login-img.jpeg" alt="Alma Local Logo" class="h-8 w-8 text-primary rounded-full">
+    <span class="text-xl font-bold tracking-tight">Alma Local</span>
+</a>
+ <a href="pages/login.html" class="inline-flex items-center justify-center whitespace-nowrap rounded-md text-sm font-medium transition-colors focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-ring disabled:pointer-events-none disabled:opacity-50 h-11 px-8 bg-accent text-accent-foreground hover:bg-accent/90">Ingresar</a>
+ 
+   
+</a>
+    </header>
+
+    <!-- Main Content -->
+    <main class="flex-1">
+        <!-- Hero Section -->
+        <section class="container mx-auto px-4 sm:px-6 lg:px-8 text-center py-20 md:py-32">
+            <h1 class="text-4xl md:text-6xl font-headline font-bold tracking-tighter mb-4">
+                Dale <span class="text-primary">alma</span> a tu negocio local.
+            </h1>
+            <p class="max-w-2xl mx-auto text-lg md:text-xl text-muted-foreground mb-8">
+                Genera una identidad de marca única y campañas de marketing locales que conecten con tu comunidad. Simple, rápido y con corazón.
+            </p>
+            <a href="pages/login.html" class="inline-flex items-center justify-center whitespace-nowrap rounded-md text-sm font-medium transition-colors focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-ring disabled:pointer-events-none disabled:opacity-50 h-11 px-8 bg-accent text-accent-foreground hover:bg-accent/90">
+                Empezar Ahora
+            </a>
+        </section>
+
+        <!-- Tools Section -->
+        <section class="bg-card/50 py-20">
+            <div class="container mx-auto px-4 sm:px-6 lg:px-8">
+                <div class="text-center mb-12">
+                    <h2 class="text-3xl md:text-4xl font-headline font-bold">Herramientas para brillar</h2>
+                    <p class="text-muted-foreground mt-2">Todo lo que necesitas para potenciar tu presencia digital.</p>
+                </div>
+                <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+                    <!-- Card 1 -->
+                    <div class="rounded-xl border bg-card text-card-foreground shadow text-center">
+                        <div class="flex flex-col space-y-1.5 p-6">
+                            <div class="mx-auto bg-primary/10 p-4 rounded-full w-max">
+                                <!-- Palette Icon -->
+                                <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="h-8 w-8 text-primary">
+                                    <path d="M12.22 2h-.44C9.28 2 7.18 4.2 8.75 6.88L14 12l-5.25 5.12C7.18 19.8 9.28 22 11.78 22h.44c2.5 0 4.6-2.2 3.03-4.88L9 12l5.25-5.12C16.82 4.2 14.72 2 12.22 2z"/>
+                                </svg>
+                            </div>
+                            <h3 class="font-headline mt-4 text-2xl font-semibold leading-none tracking-tight">Identidad de Marca</h3>
+                        </div>
+                        <div class="p-6 pt-0">
+                            <p class="text-muted-foreground text-sm">Crea un logo, paleta de colores y un eslogan que capturen la esencia de tu negocio a partir de tu propia historia.</p>
+                        </div>
+                    </div>
+                    
+                    <!-- Card 2 -->
+                    <div class="rounded-xl border bg-card text-card-foreground shadow text-center">
+                        <div class="flex flex-col space-y-1.5 p-6">
+                            <div class="mx-auto bg-primary/10 p-4 rounded-full w-max">
+                                <!-- Megaphone Icon -->
+                                <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="h-8 w-8 text-primary">
+                                    <path d="m3 11 18-2-2-18-18 2-2 18z"/>
+                                    <path d="M11 9l-1 1 2 2-2 2-2 2z"/>
+                                </svg>
+                            </div>
+                            <h3 class="font-headline mt-4 text-2xl font-semibold leading-none tracking-tight">Contenido para Redes</h3>
+                        </div>
+                        <div class="p-6 pt-0">
+                            <p class="text-muted-foreground text-sm">Genera publicaciones atractivas para Instagram y Facebook, contando las historias detrás de tus productos.</p>
+                        </div>
+                    </div>
+
+                    <!-- Card 3 -->
+                    <div class="rounded-xl border bg-card text-card-foreground shadow text-center">
+                        <div class="flex flex-col space-y-1.5 p-6">
+                            <div class="mx-auto bg-primary/10 p-4 rounded-full w-max">
+                                <!-- MapPin Icon -->
+                                <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="h-8 w-8 text-primary">
+                                    <path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5S10.62 6.5 12 6.5s2.5 1.12 2.5 2.5-1.12 2.5-2.5 2.5z"/>
+                                </svg>
+                            </div>
+                            <h3 class="font-headline mt-4 text-2xl font-semibold leading-none tracking-tight">Anuncios Geolocalizados</h3>
+                        </div>
+                        <div class="p-6 pt-0">
+                            <p class="text-muted-foreground text-sm">Crea anuncios cortos y efectivos para Google Maps y Waze, diseñados para atraer clientes que están cerca de ti.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- Footer -->
+    <footer class="bg-card/50">
+        <div class="container mx-auto px-4 sm:px-6 lg:px-8 py-6 text-center text-muted-foreground">
+            <p>&copy; 2024 Alma Local. Hecho con ❤️ para los comercios locales.</p>
+        </div>
+    </footer>
+
+</body>
+</html>

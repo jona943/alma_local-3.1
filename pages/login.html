@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Alma Local - Login</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;700&family=Montserrat:wght@700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="../static/css/login.css">
+</head>
+
+<body>
+
+    <div class="login-wrapper">
+        <div class="header">
+            <img src="../static/img/login-img.jpeg" alt="Logo Alma Local" class="logo">
+        </div>
+
+        <form action="#" method="POST" class="login-form">
+            <h2>Iniciar Sesión</h2>
+
+            <div class="form-group">
+                <label for="username">Usuario</label>
+                <input type="text" id="username" name="username" placeholder="Ingresa tu usuario" required>
+            </div>
+
+            <div class="form-group">
+                <label for="password">Contraseña</label>
+                <input type="password" id="password" name="password" placeholder="Ingresa tu contraseña" required>
+            </div>
+
+            <a href="herramientas.html" class="btn" id="login-btn">Entrar</a>
+        </form>
+
+        <p id="error-message" class="error-message"></p>
+
+        <a href="#" class="register-link">¿No tienes cuenta? Regístrate</a>
+    </div>
+
+    <script>
+        document.getElementById('login-btn').addEventListener('click', function(event) {
+            // 1. Prevenir que el enlace navegue inmediatamente
+            event.preventDefault();
+
+            // 2. Obtener los valores de los inputs
+            const user = document.getElementById('username').value;
+            const pass = document.getElementById('password').value;
+            const errorMessage = document.getElementById('error-message');
+
+            // 3. Validar las credenciales (solo para demo)
+            if (user === 'administrador' && pass === 'admin123') {
+                // Credenciales correctas: redirigir a herramientas
+                window.location.href = this.href; // this.href es 'herramientas.html'
+            } else {
+                // Credenciales incorrectas: mostrar error
+                errorMessage.textContent = 'Usuario o contraseña incorrectos.';
+            }
+        });
+    </script>
+
+</body>
+
+</html>

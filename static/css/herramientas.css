@@ -1,0 +1,201 @@
+:root {
+  --bg-dark-primary: #fcf3e8;
+  --bg-dark-secondary: #f3e2d6;
+  --border-color: #d3b6a5;
+  --text-primary: #461901;
+  --text-secondary: #5c381f;
+  --accent-blue: #7d522c;
+  --accent-blue-hover: #683812;
+  --module-text: #461901;
+  --radius-xl: 16px;
+}
+
+/* --- ESTILO BASE --- */
+body {
+  font-family: 'Inter', sans-serif;
+  background-color: var(--bg-dark-primary);
+  color: var(--text-secondary);
+  margin: 0;
+  display: flex;
+}
+
+/* --- NAVEGACIÓN LATERAL (ESCRITORIO) --- */
+nav.sidebar {
+  width: 280px;
+  background-color: var(--bg-dark-secondary);
+  border-right: 1px solid var(--border-color);
+  padding: 24px;
+  height: 100vh;
+  box-sizing: border-box;
+  position: fixed;
+  display: flex;
+  flex-direction: column;
+  z-index: 1000;
+}
+
+.sidebar-header {
+  width: 100%;
+  margin-bottom: 32px;
+}
+
+.nav-logo-container {
+  cursor: pointer;
+}
+
+.nav-logo {
+  display: block;
+  max-width: 150px;
+  height: auto;
+  border-radius: 8px;
+}
+
+#close-btn, .mobile-header, .sidebar-overlay {
+    display: none; /* Ocultos por defecto */
+}
+
+.nav-menu {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  width: 100%;
+}
+
+.nav-menu li {
+  margin-bottom: 12px;
+}
+
+.nav-link {
+  display: block;
+  padding: 12px 16px;
+  text-decoration: none;
+  color: var(--text-secondary);
+  font-weight: 500;
+  border-radius: 8px;
+  transition: all 0.2s ease;
+  white-space: nowrap;
+}
+
+.nav-link:hover {
+  background-color: rgba(0,0,0, 0.05);
+}
+
+.nav-link.active {
+  background-color: var(--accent-blue);
+  color: white;
+  font-weight: 600;
+}
+
+/* --- CONTENIDO PRINCIPAL (ESCRITORIO) --- */
+div.main-content {
+  flex-grow: 1;
+  margin-left: 280px;
+  padding: 40px;
+  display: flex;
+  justify-content: center;
+}
+
+.container {
+  width: 100%;
+  max-width: 700px;
+  background: var(--bg-dark-secondary);
+  border: 1px solid var(--border-color);
+  border-radius: var(--radius-xl);
+  overflow: hidden;
+  height: fit-content;
+}
+
+.tool-module { display: none; }
+.tool-module.active-module { display: block; }
+header.module-header { padding: 24px; border-bottom: 1px solid var(--border-color); }
+header.module-header h2 { margin: 0; font-size: 22px; color: var(--module-text); }
+main { padding: 24px; }
+
+/* ... (otros estilos de la tarjeta de herramientas) ... */
+
+
+/* === MEDIA QUERY PARA MÓVILES (800px o menos) === */
+@media (max-width: 800px) {
+  /* El body ya no es flex, el contenido fluye verticalmente */
+  body {
+    flex-direction: column;
+  }
+
+  /* 1. Ocultar la barra lateral de escritorio */
+  nav.sidebar.is-desktop {
+      display: none;
+  }
+
+  /* 2. Barra de Navegación Inferior Fija */
+  nav.sidebar {
+    flex-direction: row;
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: auto;
+    background: var(--bg-dark-secondary);
+    border-top: 1px solid var(--border-color);
+    border-right: none;
+    padding: 8px 0;
+    box-shadow: 0 -2px 10px rgba(0,0,0,0.1);
+  }
+
+  /* Ocultar elementos de escritorio en la barra */
+  .sidebar-header {
+      display: none;
+  }
+
+  /* 3. Menú con scroll horizontal */
+  .nav-menu {
+    display: flex;
+    align-items: center;
+    overflow-x: auto;
+    -ms-overflow-style: none; /* IE, Edge */
+    scrollbar-width: none; /* Firefox */
+  }
+  .nav-menu::-webkit-scrollbar {
+      display: none; /* Chrome, Safari */
+  }
+
+  .nav-menu li {
+    margin-bottom: 0;
+    flex-shrink: 0; /* Evita que los items se encojan */
+  }
+
+  /* 4. Estilo de los botones del menú */
+  .nav-link {
+    display: flex;
+    flex-direction: row; /* Alinear icono y texto horizontalmente */
+    align-items: center;
+    justify-content: center;
+    padding: 10px 20px; /* Más padding horizontal */
+    font-size: 14px;
+    font-weight: 500;
+    gap: 8px; /* Espacio entre icono y texto */
+    border-radius: 12px;
+    width: auto; /* Ancho automático basado en el contenido */
+  }
+
+  .nav-link .icon {
+      font-size: 20px;
+  }
+
+  .nav-link.active {
+      color: var(--accent-blue);
+      background-color: rgba(0,0,0,0.05);
+  }
+
+  /* 5. Ajuste del contenido principal */
+  div.main-content {
+    margin-left: 0;
+    padding: 20px 0 85px 0; /* Padding inferior para no ser tapado por la nav-bar */
+  }
+
+  .container {
+      border-radius: 0;
+      border-left: none;
+      border-right: none;
+      border-bottom: none;
+      max-width: 100%;
+  }
+}
