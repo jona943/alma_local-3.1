@@ -188,7 +188,7 @@ main { padding: 24px; }
   /* 5. Ajuste del contenido principal */
   div.main-content {
     margin-left: 0;
-    padding: 20px 0 85px 0; /* Padding inferior para no ser tapado por la nav-bar */
+    padding: 80px 20px 85px 20px; /* Padding superior para header, laterales para espacio, inferior para nav-bar */
   }
 
   .container {
@@ -197,6 +197,29 @@ main { padding: 24px; }
       border-right: none;
       border-bottom: none;
       max-width: 100%;
+  }
+
+  main {
+    padding: 16px; /* Reducir padding en los módulos */
+  }
+
+  .resultados-area {
+    background-color: var(--bg-dark-primary);
+    border-radius: var(--radius-xl);
+    padding: 16px;
+    margin-top: 16px;
+  }
+
+  pre.resultado-texto-pre {
+    background-color: white;
+    border: 1px solid var(--border-color);
+    border-radius: 8px; /* Bordes redondeados para el campo de texto */
+    padding: 12px;
+    white-space: pre-wrap;
+    word-wrap: break-word;
+    color: var(--text-primary);
+    height: auto; /* Altura dinámica */
+    min-height: 100px; /* Una altura mínima */
   }
 }
 
