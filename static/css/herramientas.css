@@ -174,7 +174,7 @@ pre.resultado-texto-pre, #lista-slogans, #tarjetas-tono-container, #script-card-
 .preview-foto-img {
     width: 100%;
     height: 100%;
-    object-fit: cover; /* Scale and crop image to fit */
+    object-fit: contain; /* Fit image without cropping */
 }
 
 .btn-generar {
